@@ -1,4 +1,4 @@
-
+#CODE BY SENTDEX
 import itertools
 from colorama import Fore, Back, Style, init
 
@@ -32,18 +32,13 @@ def show(map, val = 0, row = 0, col = 0 ,onlyshow=False):
         print("DAmn You dummy!!", e)
         return map,False
 
-
-
-#tictactoe =show(tictactoe , onlyshow=True)
-
 def win(game):
-
+    
     def all_same(l):
         if l.count(l[0]) == len(l) and l[0]!= 0 :
             return True
         else:
             return False
-
 
 #HORIZONTAL CHECK
     for row in game:
@@ -55,17 +50,12 @@ def win(game):
     for col in range(len(game)):
         check=[]
         for row in game:
-            check.append(row[col])
+            check.append(row[col])                      #VERTICAL CHECK STILL BUGGY SOMEWHERE
     if all_same(check):
         print(f"Player {check[0]} wins vertically")
         return True
+
 #DIAGONAL CHECK
-    '''
-    cols=reversed(range(len(game)))
-    rows=range(len(game))                       UPDATED CODE BELOW
-    for col,row in zip(cols,rows):
-        print(col,row)
-    '''
     diags=[]
     for col,row in enumerate(reversed(range(len(game)))):
         diags.append(game[row][col])
@@ -82,13 +72,12 @@ def win(game):
     return False
 
 play=True
-
 players=[1,2]
 
 while play: 
     '''
     tictactoe= [[0,0,0],
-                [0,0,0],
+                [0,0,0],        basic layout
                 [0,0,0]]
     '''
     size=int(input("Enter the size of game board: "))
